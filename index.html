@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, My Love ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffc1cc);
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      color: #333;
+    }
+    .container { max-width: 600px; margin: 0 auto; }
+    
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.5rem;
+      color: #d63384;
+      margin: 30px 0;
+      text-shadow: 0 4px 10px rgba(214, 51, 132, 0.3);
+    }
+    
+    .question {
+      font-size: 2rem;
+      margin: 40px 0 30px;
+      font-family: 'Playfair Display', serif;
+      color: #5d0e3b;
+    }
+    
+    button, .option {
+      padding: 18px 35px;
+      margin: 12px;
+      font-size: 1.4rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      background: white;
+      color: #d63384;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      transition: all 0.4s;
+      font-family: 'Dancing Script', cursive;
+    }
+    
+    button:hover, .option:hover {
+      transform: scale(1.08);
+      box-shadow: 0 10px 25px rgba(214, 51, 132, 0.4);
+    }
+    
+    .option { display: inline-block; width: 200px; }
+    .hidden { display: none; }
+    
+    img {
+      width: 300px;
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+      margin: 25px 0;
+    }
+    
+    .heart {
+      font-size: 2.5rem;
+      animation: pulse 1.5s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.4); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="step1">
+      <h1>🎂 My Love 🎉</h1>
+      <div class="question">Isn’t today your birthday?</div>
+      <button onclick="nextStep()">Yes</button>
+    </div>
 
+    <div id="step2" class="hidden">
+      <h1>🎉</h1>
+      <div class="question">How old are you?</div>
+      <div>
+        <div class="option" onclick="selectAge(this)">10-15</div>
+        <div class="option" onclick="selectAge(this)">16-20</div>
+        <div class="option" onclick="selectAge(this)">21-25</div>
+      </div>
+    </div>
+
+    <div id="step3" class="hidden">
+      <h1>✨</h1>
+      <div class="question">What is your zodiac sign?</div>
+      <div>
+        <div class="option" onclick="selectZodiac(this)">Aries</div>
+        <div class="option" onclick="selectZodiac(this)">Sagittarius</div>
+        <div class="option" onclick="selectZodiac(this)">Gemini</div>
+        <div class="option" onclick="selectZodiac(this)">Taurus</div>
+      </div>
+    </div>
+
+    <div id="final" class="hidden">
+      <h1>Happy Birthday, My Love! 💖</h1>
+      <img src="photo.jpg" alt="My Love">
+      <p style="font-size: 1.45rem; line-height: 1.9; margin: 35px 0;">
+        Today is all about celebrating you and the happiness you bring into my life.<br><br>
+        I hope this new year of your life is filled with joy, success, laughter, and beautiful memories.<br><br>
+        Thank you for being such a wonderful person. May all your dreams come true, and may this year bring you endless reasons to smile.<br><br>
+        Enjoy your special day, my love. ❤️
+      </p>
+      <p class="heart">💕 💕 💕</p>
+    </div>
+  </div>
+
+  <script>
+    function nextStep() {
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step2').classList.remove('hidden');
+    }
+    function selectAge(el) {
+      el.style.background = "#d63384"; el.style.color = "white";
+      setTimeout(() => {
+        document.getElementById('step2').classList.add('hidden');
+        document.getElementById('step3').classList.remove('hidden');
+      }, 400);
+    }
+    function selectZodiac(el) {
+      el.style.background = "#d63384"; el.style.color = "white";
+      setTimeout(() => {
+        document.getElementById('step3').classList.add('hidden');
+        document.getElementById('final').classList.remove('hidden');
+      }, 500);
+    }
+  </script>
+</body>
+</html>
